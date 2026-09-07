@@ -418,6 +418,10 @@ if (fs.existsSync(distPath)) {
   })
 }
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`OpsPilot API listening on http://localhost:${PORT}`)
-})
+export { app }
+
+if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`OpsPilot API listening on http://localhost:${PORT}`)
+  })
+}
