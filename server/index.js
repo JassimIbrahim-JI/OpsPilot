@@ -8,8 +8,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const PORT = Number(process.env.PORT || 4000)
+const isServerless = process.env.VERCEL === '1'
 const app = express()
 const sessions = new Map()
+let runtimeTasks = null
 
 const dataDir = path.join(__dirname, 'data')
 const usersFile = path.join(dataDir, 'users.json')
@@ -116,15 +118,19 @@ const readUsers = () => {
 }
 
 const writeUsers = (users) => {
+  if (isServerless) return
   fs.writeFileSync(usersFile, JSON.stringify(users, null, 2))
 }
 
 const readTasks = () => {
+  if (isServerless && runtimeTasks) return runtimeTasks
   ensureDataFiles()
   try {
     const raw = fs.readFileSync(tasksFile, 'utf8')
     const parsed = JSON.parse(raw)
-    return sanitizeTasks(Array.isArray(parsed) ? parsed : [])
+    const tasks = sanitizeTasks(Array.isArray(parsed) ? parsed : [])
+    if (isServerless) runtimeTasks = tasks
+    return tasks
   } catch {
     return []
   }
@@ -132,6 +138,10 @@ const readTasks = () => {
 
 const writeTasks = (tasks) => {
   const sanitized = sanitizeTasks(tasks)
+  if (isServerless) {
+    runtimeTasks = sanitized
+    return
+  }
   fs.writeFileSync(tasksFile, JSON.stringify(sanitized, null, 2))
 }
 
