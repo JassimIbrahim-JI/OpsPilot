@@ -194,7 +194,7 @@ const requireAuth = (req, res, next) => {
     return res.status(401).json({ message: 'Authentication required.' })
   }
 
-  const userId = sessions.get(token)
+  const userId = token === 'demo-token' ? 'user_demo' : sessions.get(token)
   if (!userId) {
     return res.status(401).json({ message: 'Session expired or invalid.' })
   }
@@ -279,7 +279,7 @@ app.post('/api/auth/demo-login', (_req, res) => {
     return res.status(404).json({ message: 'Demo user missing.' })
   }
 
-  const token = createSessionToken()
+  const token = isServerless ? 'demo-token' : createSessionToken()
   sessions.set(token, user.id)
 
   return res.json({
