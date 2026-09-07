@@ -1,4 +1,4 @@
-# TaskFlow Pro — static site (Vite build served by nginx)
+# FlowPilot — static site (Vite build served by nginx)
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY package.json ./

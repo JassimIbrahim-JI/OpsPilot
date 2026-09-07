@@ -1,11 +1,13 @@
-# Render.com free-tier deployment config for TaskFlow Pro (static site)
 services:
   - type: web
-    name: taskflow-pro
-    runtime: static
-    buildCommand: "npm install && npm run build"
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    name: flowpilot-workspace
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

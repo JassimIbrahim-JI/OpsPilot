@@ -1,0 +1,67 @@
+[
+  {
+    "id": "task_1788782882617_8l2sga",
+    "userId": "user_demo",
+    "title": "Test task from QA",
+    "description": "",
+    "status": "todo",
+    "priority": "medium",
+    "due": "Today",
+    "tags": [],
+    "createdAt": 1788782882617
+  },
+  {
+    "id": "t1",
+    "userId": "user_demo",
+    "title": "Design onboarding flow",
+    "description": "Craft a delightful first-run experience with progressive disclosure.",
+    "status": "in_progress",
+    "priority": "high",
+    "due": "Today",
+    "tags": [
+      "design",
+      "ux"
+    ],
+    "createdAt": 1788696449226
+  },
+  {
+    "id": "t2",
+    "userId": "user_demo",
+    "title": "Ship dark mode toggle",
+    "description": "Persist theme preference and animate the transition.",
+    "status": "done",
+    "priority": "medium",
+    "due": "Yesterday",
+    "tags": [
+      "frontend"
+    ],
+    "createdAt": 1788610049226
+  },
+  {
+    "id": "t3",
+    "userId": "user_demo",
+    "title": "Integrate Stripe billing",
+    "description": "Wire up subscription tiers with webhook handling.",
+    "status": "todo",
+    "priority": "high",
+    "due": "Tomorrow",
+    "tags": [
+      "backend",
+      "payments"
+    ],
+    "createdAt": 1788779249226
+  },
+  {
+    "id": "t4",
+    "userId": "user_demo",
+    "title": "Write API documentation",
+    "description": "Document all endpoints with examples and auth flow.",
+    "status": "todo",
+    "priority": "low",
+    "due": "Next week",
+    "tags": [
+      "docs"
+    ],
+    "createdAt": 1788775649226
+  }
+]

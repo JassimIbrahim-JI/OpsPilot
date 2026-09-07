@@ -1,27 +1,34 @@
 {
-  "name": "taskflow-pro",
+  "name": "opspilot-workspace",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "vite --host 0.0.0.0 --port 5173",
+    "dev:server": "node server/index.js",
     "build": "vite build",
-    "preview": "vite preview",
-    "test:e2e": "playwright test"
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "reset:tasks": "node -e \"const fs=require('fs');const seed=[{id:'t1',userId:'user_demo',title:'Design onboarding flow',description:'Craft a delightful first-run experience with progressive disclosure.',status:'in_progress',priority:'high',due:'Today',tags:['design','ux'],createdAt:Date.now()-86400000},{id:'t2',userId:'user_demo',title:'Ship dark mode toggle',description:'Persist theme preference and animate the transition.',status:'done',priority:'medium',due:'Yesterday',tags:['frontend'],createdAt:Date.now()-172800000},{id:'t3',userId:'user_demo',title:'Integrate Stripe billing',description:'Wire up subscription tiers with webhook handling.',status:'todo',priority:'high',due:'Tomorrow',tags:['backend','payments'],createdAt:Date.now()-3600000},{id:'t4',userId:'user_demo',title:'Write API documentation',description:'Document all endpoints with examples and auth flow.',status:'todo',priority:'low',due:'Next week',tags:['docs'],createdAt:Date.now()-7200000}];fs.writeFileSync('server/data/tasks.json', JSON.stringify(seed,null,2));\"",
+    "test:e2e": "npm run reset:tasks && playwright test"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "express": "^4.21.2",
     "framer-motion": "^11.2.10",
     "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.45.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^9.0.1",
+    "cross-env": "^10.0.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "vite": "^5.3.1",
-    "@playwright/test": "^1.45.0"
+    "vite": "^5.3.1"
   }
 }

@@ -12,8 +12,8 @@ import { useStore, selectStats } from '../store'
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'tasks', label: 'Tasks', icon: CheckSquare },
-  { id: 'ai', label: 'AI Insights', icon: Sparkles },
+  { id: 'tasks', label: 'Mission control', icon: CheckSquare },
+  { id: 'ai', label: 'Ops copilot', icon: Sparkles },
   { id: 'settings', label: 'Settings', icon: Settings },
 ]
 
@@ -29,8 +29,8 @@ export default function Sidebar({ active, onNavigate }) {
           <CheckSquare className="w-5 h-5 text-white" />
         </div>
         <div>
-          <div className="font-bold text-slate-100 leading-tight">TaskFlow</div>
-          <div className="text-[11px] text-slate-500">Pro Edition</div>
+          <div className="font-bold text-slate-100 leading-tight">OpsPilot</div>
+          <div className="text-[11px] text-slate-500">Work operating system</div>
         </div>
       </div>
 
@@ -65,14 +65,15 @@ export default function Sidebar({ active, onNavigate }) {
 
       {/* Quick add */}
       <button
+        aria-label="Quick add"
         onClick={() => {
-          toast('Opening new task…', 'info')
+          toast('Opening a new outcome…', 'info')
           onNavigate('tasks')
         }}
         className="mt-6 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-indigo text-white font-semibold text-sm shadow-glow hover:shadow-glow-emerald transition-all"
       >
         <Plus className="w-4 h-4" />
-        New Task
+        Quick Add
       </button>
 
       {/* Stats mini */}

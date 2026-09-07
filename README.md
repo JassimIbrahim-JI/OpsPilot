@@ -4,113 +4,135 @@
 # ║  © 2026 All Rights Reserved              ║
 # ╚══════════════════════════════════════════════════╝
 
-# ✅ TaskFlow Pro — Premium Task Management Platform
+# ✅ OpsPilot — Work operating system
 
-A **premium, production-ready task management platform** with a world-class
-dark-mode UI, buttery-smooth animations, and a built-in AI assistant.
+OpsPilot is a full-stack work operating system for freelancers and small teams. It connects goals, projects, decisions, risks, and execution signals in one focused workspace instead of adding another generic task list.
 
-Built with **React + Vite + Tailwind CSS + Framer Motion + Zustand**.
-
----
-
-## ✨ Features
-
-- 🎨 **Ultra-modern dark UI** — glassmorphism, neon gradients, ambient motion
-- ⚡ **Butter-smooth animations** — Framer Motion micro-interactions everywhere
-- ✅ **Full task CRUD** — create, edit, delete, filter, search, status toggle
-- 📊 **Live dashboard** — animated stats, completion ring, recent tasks
-- 🤖 **AI Insights** — smart, predictive workload analysis
-- 🔔 **Toast notifications** — success / error / warning feedback
-- 🎛️ **Settings** — dark mode, accent colors, notifications (all wired up)
-- 📱 **Fully responsive** — mobile-first, no horizontal scroll
+Built with React + Vite + Express + Tailwind CSS + Framer Motion + Zustand.
 
 ---
 
-## 🚀 Quick Start (< 5 minutes)
+## ✨ Included
+
+- Premium dark dashboard with glassmorphism and motion
+- Full task CRUD with status, priority, filters, and search
+- Outcome-focused dashboard for weekly planning and progress reviews
+- Demo auth flow with protected API routes
+- Persistent local JSON database for tasks and users
+- AI insight panel with workflow memory
+- Theme toggle and profile editing surface
+- Render-ready production configuration
+- Playwright smoke tests for UI verification
+
+---
+
+## 🚀 Run locally
 
 ### Prerequisites
-- **Node.js 18+** (https://nodejs.org)
+- Node.js 18+
 
-### Steps
+### Development
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Start the dev server
 npm run dev
 ```
 
-Open **http://localhost:5173** — done! 🎉
+Open http://localhost:5173
 
-### Production build
+API endpoints:
+- http://localhost:4000/api/health
+- http://localhost:4000/api/tasks
+- http://localhost:4000/api/auth/login
+
+### Production
 
 ```bash
-npm run build      # outputs to /dist
-npm run preview    # preview the production build
+npm run build
+npm run start
 ```
+
+Open http://localhost:4000
 
 ---
 
-## 🧪 Run E2E Tests (Playwright)
+## ☁️ Deploy on Render
+
+1. Push this project to GitHub.
+2. Go to Render and create a new Web Service.
+3. Connect the repository.
+4. Use:
+   - Build Command: `npm install && npm run build`
+   - Start Command: `npm run start`
+5. Set environment variables:
+   - `NODE_ENV=production`
+   - `PORT=10000`
+
+This repository already includes a `render.yaml` file for a Node-based deployment.
+
+---
+
+## 📦 Marketing package
+
+The project includes a sales and launch kit in the `gumroad-release/` folder:
+
+- `SALES_COPY.md` — product copy for Gumroad / marketplace listings
+- `RENDER_GUIDE.md` — deployment walkthrough
+- `ALL_PLATFORMS_GUIDE.md` — multi-platform distribution guidance
+- `CODECANYON_SUBMISSION.md` — CodeCanyon-style submission brief
+
+Recommended launch pricing:
+- Standard: $79
+- Premium: $149
+- Bundle: $299
+
+---
+
+## 🧪 QA
 
 ```bash
-npx playwright install   # first time only
+npx playwright install
 npm run test:e2e
 ```
 
 ---
 
-## 🏗️ Tech Stack
+## 📁 Project structure
 
-| Layer | Technology |
-|-------|-----------|
-| UI Framework | React 18 |
-| Build Tool | Vite 5 |
-| Styling | Tailwind CSS 3 |
-| Animations | Framer Motion 11 |
-| State | Zustand 4 |
-| Icons | Lucide React |
-| Testing | Playwright |
-
----
-
-## 📁 Project Structure
-
-```
-TaskFlowPro/
+```bash
+FlowPilot/
+├── server/
+│   ├── data/
+│   │   ├── tasks.json
+│   │   └── users.json
+│   └── index.js
 ├── src/
-│   ├── App.jsx              # Root layout + routing
-│   ├── main.jsx             # Entry point
-│   ├── index.css            # Global styles + glassmorphism
-│   ├── store.js             # Zustand store (tasks + toasts)
-│   ├── lib/
-│   │   └── motion.jsx       # Reusable animation variants
+│   ├── App.jsx
+│   ├── store.js
+│   ├── index.css
 │   ├── components/
-│   │   ├── ui.jsx           # Button, Card, Badge, Input
-│   │   ├── Sidebar.jsx      # Navigation sidebar
-│   │   ├── Toasts.jsx       # Toast notifications
-│   │   └── AmbientBackground.jsx  # Animated background
 │   └── views/
-│       ├── Dashboard.jsx    # Stats + progress ring
-│       ├── TasksView.jsx    # Task CRUD + filters
-│       ├── AiView.jsx       # AI assistant
-│       └── SettingsView.jsx # Preferences
+├── gumroad-release/
+│   ├── SALES_COPY.md
+│   ├── RENDER_GUIDE.md
+│   ├── CODECANYON_SUBMISSION.md
+│   └── ALL_PLATFORMS_GUIDE.md
 ├── tests/
-│   └── e2e.spec.js          # Playwright E2E tests
-├── index.html
+├── dist/
+├── render.yaml
+├── Dockerfile
+├── LICENSE
 ├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── postcss.config.js
+├── README.md
+└── vite.config.js
 ```
 
 ---
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE).
+MIT
 
 ---
 
-**Crafted with ❤️ by Jassim Abuanzeh**
+Built for premium product delivery, deployment readiness, and marketplace packaging.

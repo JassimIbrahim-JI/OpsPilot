@@ -1,10 +1,10 @@
-# 💰 TaskFlow Pro — Gumroad Sales Copy (copy-paste ready)
+# 💰 OpsPilot — Gumroad Sales Copy (copy-paste ready)
 
 ---
 
 ## 🏷️ Product Title
 
-> **TaskFlow Pro — Premium Task Management Platform with a World-Class Dark UI**
+> **OpsPilot — Work operating system for freelancers and small teams**
 
 ---
 
@@ -12,10 +12,9 @@
 
 ### Stop settling for ugly, clunky task apps.
 
-**TaskFlow Pro** is a premium, production-ready task management platform with a
-**breathtaking dark-mode interface**, buttery-smooth animations, and a built-in
-AI assistant — designed to make your product feel *expensive* from the very
-first second.
+**OpsPilot** is a premium, production-ready operating workspace that connects
+goals, projects, decisions, risks, and execution signals without the noise of
+heavyweight project-management tools.
 
 ### ✨ Why buyers love it
 
@@ -23,7 +22,7 @@ first second.
 - ⚡ **Butter-smooth animations** — Framer Motion micro-interactions on every element
 - ✅ **Full task management** — create, edit, delete, filter, search, status toggle
 - 📊 **Live dashboard** — animated stats, completion ring, recent activity
-- 🤖 **AI Insights** — smart, predictive workload analysis
+- 🤖 **Flow insights** — surface bottlenecks and high-impact next actions
 - 🔔 **Toast notifications** — instant success/error feedback
 - 🎛️ **Fully wired settings** — dark mode, accent colors, notifications
 - 📱 **100% responsive** — mobile-first, zero horizontal scroll
@@ -58,7 +57,7 @@ That's it. Open http://localhost:5173 and you're live.
 
 ## 🏷️ Tags
 
-`react` `task-management` `dashboard` `tailwind` `framer-motion` `ui-kit` `dark-mode` `saas` `productivity` `frontend`
+`react` `productivity` `work-management` `dashboard` `tailwind` `framer-motion` `saas` `freelancer-tools` `frontend`
 
 ---
 

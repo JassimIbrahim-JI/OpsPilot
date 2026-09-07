@@ -62,29 +62,42 @@ export default function TasksView() {
     setModalOpen(true)
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!title.trim()) {
       toast('Title is required', 'error')
       return
     }
-    if (editing) {
-      updateTask(editing.id, { title, description, priority })
-      toast('Task updated', 'success')
-    } else {
-      addTask({ title, description, priority, status: 'todo', due: 'Today', tags: [] })
-      toast('Task created', 'success')
+
+    try {
+      if (editing) {
+        await updateTask(editing.id, { title, description, priority })
+        toast('Task updated', 'success')
+      } else {
+        await addTask({ title, description, priority, status: 'todo', due: 'Today', tags: [] })
+        toast('Task created', 'success')
+      }
+      setModalOpen(false)
+    } catch (error) {
+      toast(error.message || 'Unable to save task', 'error')
     }
-    setModalOpen(false)
   }
 
-  const handleDelete = (t) => {
-    deleteTask(t.id)
-    toast('Task deleted', 'warning')
+  const handleDelete = async (t) => {
+    try {
+      await deleteTask(t.id)
+      toast('Task deleted', 'warning')
+    } catch (error) {
+      toast(error.message || 'Unable to delete task', 'error')
+    }
   }
 
-  const handleToggle = (t) => {
-    toggleStatus(t.id)
-    toast('Status updated', 'success')
+  const handleToggle = async (t) => {
+    try {
+      await toggleStatus(t.id)
+      toast('Status updated', 'success')
+    } catch (error) {
+      toast(error.message || 'Unable to update status', 'error')
+    }
   }
 
   return (
@@ -92,11 +105,11 @@ export default function TasksView() {
       {/* Header */}
       <motion.div variants={item} className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-slate-100">Tasks</h1>
-          <p className="text-slate-500 mt-1">{tasks.length} tasks shown</p>
+          <h1 className="text-3xl font-bold text-slate-100">Mission control</h1>
+          <p className="text-slate-500 mt-1">{tasks.length} execution signals in view</p>
         </div>
         <Button onClick={openCreate}>
-          <Plus className="w-4 h-4" /> New Task
+          <Plus className="w-4 h-4" /> Add execution signal
         </Button>
       </motion.div>
 

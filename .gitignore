@@ -25,3 +25,9 @@ Thumbs.db
 # Test artifacts
 playwright-report/
 test-results/
+
+# Release archives and local capture artifacts
+*.zip
+screenshots/
+capture-screenshots.mjs
+vite.config.js.timestamp-*.mjs
